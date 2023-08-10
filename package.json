@@ -1,0 +1,29 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "browser-sync": "browser-sync start --server --serveStatic dist --files dist/*.*",
+    "build": "webpack --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.29.3",
+    "game-life": "^1.2.4",
+    "just-validate": "^4.2.0",
+    "swiper": "^9.4.1",
+    "terminal-kit": "^3.0.0",
+    "vhs": "^0.2.0",
+    "vue-window-manager": "^0.3.4",
+    "xterm": "^5.2.1"
+  },
+  "description": "",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.87.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
