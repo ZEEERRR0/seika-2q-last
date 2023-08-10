@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <link href="./crt.css" rel="stylesheet">
+    <style>
+	body{
+		background-color: #008080;
+      	color: #000;
+		text-align: center;
+	}
+        
+        #swiper-container{
+            display: flex;
+            justify-content: center;
+        }
+        .swiper {
+            position: relative;
+            width: 500px;
+            height: 300px;
+        }
+        .swiper-title{
+            text-align: center;
+            font-weight: bold;
+        }
+        .swiper-slide div{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+		text-align: center;
+        }
+        .swiper-slide div img{
+            width: 40%;
+            height: auto;
+        }
+
+        /*  */
+        /* CSS for JustValidate */
+        /*  */
+        #basic_form{
+            width: 600px;    
+            padding: 50px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            background-color: rgb(225, 225, 225);
+            border-radius: 10px;
+        }
+
+        #basic_form > div{
+            padding: 10px;
+        }
+
+        #basic_form label{
+            display: flex;
+            font-weight: bold;
+        }
+
+        #basic_form label span{
+            display: inline-block;
+            width: 150px;
+        }
+
+        #basic_form label div{
+            flex: 1;
+        }
+
+        #basic_form input{
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        #basic_form button{
+            display: block;
+            border: 0;
+            color: #FFF;
+            padding: 10px;
+            width: 200px;
+            margin: 20px auto 0 auto;
+            background-color: #0144ff;
+        }
+
+        .terminal{
+            text-align: left;
+        }
+
+    </style>
+
+
+    <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+    <script src="node_modules/xterm/lib/xterm.js"></script>
+</head>
+
+<body class="crt">
+	<script src="main.js"></script> 
+
+	<div class="home">
+
+	</div>
+
+    <div class="window" style="width: 45%">
+        <div class="title-bar">
+          <div class="title-bar-text">Terminal</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        
+        <div class="window-body">
+
+            <div id="terminal"></div>
+            <script>
+                let term = new Terminal();
+                term.open(document.getElementById('terminal'));
+                function runFakeTerminal() {
+                if (term._initialized) {
+                    return;
+                }
+                term._initialized = true;
+                term.prompt = () => {
+                    term.write('\r\n$ ');
+                };
+
+                term.write == terminal
+
+                term.writeln('===================== welcome ====================')
+                term.writeln('                   OS:windows98')
+                term.writeln('==================================================')
+
+                term.prompt();
+
+                term.onKey(e => {
+                    console.log(e)
+                    const ev = e.domEvent
+                    const printable = !ev.altKey && !ev.ctrlKey && !ev.metaKey
+
+                    if (ev.keyCode === 13) {
+                    term.prompt();
+                    } else if (ev.keyCode === 8) {
+                    if (term._core.buffer.x > 2) {
+                        term.write('\b \b');
+                    }
+                    } else if (printable) {
+                    term.write(e.key);
+                    }
+                });
+
+                if (terminal == "clear"){
+                    term.reset()
+                }
+                }
+                runFakeTerminal()
+            </script>
+
+        </div>
+    </div>
+
+    <div class="window" style="top: 32%; left: 55%; width: 30%; position: absolute;">
+        <div class="title-bar">
+            <div class="title-bar-text">[]</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+          </div>
+          <div class="window-body">
+        <p>Type left Terminal</p>
+          </div>
+          <div class="status-bar">
+            <p class="status-bar-field">Press F1 for help</p>
+            <p class="status-bar-field">Slide 1</p>
+            <p class="status-bar-field">CPU Usage: 14%</p>
+          </div>
+        </div>
+        </div>
+
+</body>
+</html>
